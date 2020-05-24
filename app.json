@@ -2,7 +2,9 @@
   "expo": {
     "name": "Level Alert",
     "slug": "level-alert",
-    "platforms": ["ios"],
+    "platforms": [
+      "ios"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,9 +16,16 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.Skiies.LevelAlert"
+    },
+    "android": {
+      "package": "com.Skiies.LevelAlert"
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }
