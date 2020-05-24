@@ -2,11 +2,13 @@ import React, { useRef } from "react";
 import { StyleSheet, View, Dimensions, Animated, Text } from "react-native";
 import Bubble from "./Bubble";
 import useFilteredBetaAngle from "./useFilteredBetaAngle";
+import useDeviceHeight from "./useDeviceHeight";
 
 export default function Level() {
   const beta = useFilteredBetaAngle();
+  const deviceHeight = useDeviceHeight();
   const animPos = useRef(new Animated.Value(0)).current;
-  const h = Math.round(Dimensions.get("window").height / 2 - 50);
+  const animBounds = Math.round(deviceHeight / 2 - 50);
   animPos.setValue(beta);
 
   return (
@@ -24,7 +26,7 @@ export default function Level() {
               {
                 translateY: animPos.interpolate({
                   inputRange: [-Math.PI / 2, Math.PI / 2],
-                  outputRange: [-h, h],
+                  outputRange: [-animBounds, animBounds],
                 }),
               },
             ],
