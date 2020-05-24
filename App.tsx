@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import Level from "./Level";
+import Level from "./src/Level";
 
 export default function App() {
   return (
