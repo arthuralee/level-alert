@@ -1,15 +1,13 @@
 import React, { useRef } from "react";
-import { StyleSheet, View, Dimensions, Animated, Text } from "react-native";
+import { StyleSheet, View, Animated } from "react-native";
 import Bubble from "./Bubble";
-import useFilteredBetaAngle from "./useFilteredBetaAngle";
 import useDeviceHeight from "./useDeviceHeight";
 
-export default function Level() {
-  const beta = useFilteredBetaAngle();
+export default function Level({ angle }: { angle: number }) {
   const deviceHeight = useDeviceHeight();
   const animPos = useRef(new Animated.Value(0)).current;
   const animBounds = Math.round(deviceHeight / 2 - 50);
-  animPos.setValue(beta);
+  animPos.setValue(angle);
 
   return (
     <View style={styles.container}>

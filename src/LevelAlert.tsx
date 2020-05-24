@@ -1,16 +1,20 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Level from "./Level";
+import useFilteredBetaAngle from "./useFilteredBetaAngle";
+import AngleLabel from "./AngleLabel";
 
 export default function LevelAlert() {
+  const angle = useFilteredBetaAngle();
+
   return (
     <View style={styles.container}>
-      <View style={styles.side}>
-        <Text>Test</Text>
+      <View style={[styles.label, { transform: [{ rotateZ: "90deg" }] }]}>
+        <AngleLabel angle={angle} />
       </View>
-      <Level />
-      <View style={styles.side}>
-        <Text>Test</Text>
+      <Level angle={angle} />
+      <View style={[styles.label, { transform: [{ rotateZ: "-90deg" }] }]}>
+        <AngleLabel angle={angle} />
       </View>
     </View>
   );
@@ -23,10 +27,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  side: {
+  label: {
     flexGrow: 1,
-    backgroundColor: "red",
     zIndex: 10,
     alignItems: "center",
+    width: 50,
   },
 });
