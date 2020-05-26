@@ -11,11 +11,12 @@ import CoreMotion
 
 class MainViewController: UIViewController {
     
-    let angleLabelMargin: CGFloat = 20.0
+    let angleLabelMargin: CGFloat = 25.0
     
     private var mCircleView: UIView!
     private var mBigCircleView: UIView!
-    private var mAngleLabel: UILabel!
+    private var mAngleLabelRight: AngleLabel!
+    private var mAngleLabelLeft: AngleLabel!
     private var mMotionProvider: MotionProvider!
     private var mHeight: CGFloat!
 
@@ -34,10 +35,13 @@ class MainViewController: UIViewController {
         mCircleView.center = self.view.center
         self.view.addSubview(mCircleView)
         
-        mAngleLabel = UILabel(frame: CGRect(x:100, y: 100, width:0, height: 0))
-        mAngleLabel.font = mAngleLabel.font.withSize(45)
-        mAngleLabel.textColor = UIColor.init(white: 0.3, alpha: 1)
-        self.view.addSubview(mAngleLabel)
+        mAngleLabelRight = AngleLabel(frame: CGRect.zero)
+        mAngleLabelRight.transform = CGAffineTransform(rotationAngle: -1 * .pi / 2.0)
+        self.view.addSubview(mAngleLabelRight)
+        
+        mAngleLabelLeft = AngleLabel(frame: CGRect.zero)
+        mAngleLabelLeft.transform = CGAffineTransform(rotationAngle: .pi / 2.0)
+        self.view.addSubview(mAngleLabelLeft)
     }
     
     static func configureCircleView(size: CGFloat) -> UIView {
@@ -48,12 +52,13 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        mAngleLabel.sizeToFit()
-        mAngleLabel.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        mAngleLabelRight.sizeToFit()
+        mAngleLabelLeft.sizeToFit()
+        
         let pxFromCenter = mBigCircleView.frame.size.width / 2 + angleLabelMargin
-        mAngleLabel.frame.origin = CGPoint(x: self.view.frame.midX + pxFromCenter, y: self.view.center.y - mAngleLabel.frame.height / 2)
-//        let centerPoint = CGPointMake(mAngleLabel.frame.midX, mAngleLabel.frame.midY)
-        mAngleLabel.transform = CGAffineTransform(rotationAngle: -1 * .pi / 2.0)
+        
+        mAngleLabelRight.frame.origin = CGPoint(x: self.view.frame.midX + pxFromCenter, y: self.view.center.y - mAngleLabelRight.frame.height / 2)
+        mAngleLabelLeft.frame.origin = CGPoint(x: self.view.frame.midX - pxFromCenter - mAngleLabelLeft.frame.width, y: self.view.center.y - mAngleLabelLeft.frame.height / 2)
         
         mHeight = self.view.frame.size.height
     }
@@ -72,6 +77,9 @@ class MainViewController: UIViewController {
     func updateAngle(_ angle: Double) {
         let grad = -1 * angle / .pi
         self.mCircleView.transform = CGAffineTransform(translationX: 0, y: CGFloat.init(grad) * mHeight)
-        self.mAngleLabel.text = String(abs(Int(round(grad * 180)))) + "º"
+        self.mCircleView.alpha = CGFloat(min(1.0, abs(angle) / 0.1))
+        
+        self.mAngleLabelRight.setAngle(angle)
+        self.mAngleLabelLeft.setAngle(angle)
     }
 }

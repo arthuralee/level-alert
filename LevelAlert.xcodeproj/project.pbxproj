@@ -15,6 +15,7 @@
 		8EB25B16247CE60300E78BD2 /* LPF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB25B12247CE60300E78BD2 /* LPF.swift */; };
 		8EB25B17247CE60300E78BD2 /* MotionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB25B13247CE60300E78BD2 /* MotionProvider.swift */; };
 		8EB25B18247CE60300E78BD2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB25B15247CE60300E78BD2 /* MainViewController.swift */; };
+		8EB25B1A247CE73800E78BD2 /* AngleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB25B19247CE73800E78BD2 /* AngleLabel.swift */; };
 		99EC63CFB4B549BBAF093D10 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3ABB89D1E68496EB7D95742 /* SplashScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		8EB25B13247CE60300E78BD2 /* MotionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotionProvider.swift; path = LevelAlert/MotionProvider.swift; sourceTree = "<group>"; };
 		8EB25B14247CE60300E78BD2 /* LevelAlert-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LevelAlert-Bridging-Header.h"; path = "LevelAlert/LevelAlert-Bridging-Header.h"; sourceTree = "<group>"; };
 		8EB25B15247CE60300E78BD2 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = LevelAlert/MainViewController.swift; sourceTree = "<group>"; };
+		8EB25B19247CE73800E78BD2 /* AngleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AngleLabel.swift; path = LevelAlert/AngleLabel.swift; sourceTree = "<group>"; };
 		E3ABB89D1E68496EB7D95742 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = LevelAlert/SplashScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +62,7 @@
 				8EB25B12247CE60300E78BD2 /* LPF.swift */,
 				8EB25B15247CE60300E78BD2 /* MainViewController.swift */,
 				8EB25B13247CE60300E78BD2 /* MotionProvider.swift */,
+				8EB25B19247CE73800E78BD2 /* AngleLabel.swift */,
 			);
 			name = LevelAlert;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				8EB25B18247CE60300E78BD2 /* MainViewController.swift in Sources */,
+				8EB25B1A247CE73800E78BD2 /* AngleLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
